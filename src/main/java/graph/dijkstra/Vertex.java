@@ -17,6 +17,7 @@ public class Vertex {
 
     public void addDestination(Vertex destination, int distance) {
         adjacentNodes.put(destination, distance);
+        destination.adjacentNodes.put(this, distance);
     }
 
     public String getName() {

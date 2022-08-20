@@ -6,7 +6,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
+/*
+* https://www.hackerrank.com/challenges/sms-splitting/problem
+* */
 public class TwilioSplitSMSMessage {
     private static final int MAX_SEGEMENT_SIZE = 160;
 

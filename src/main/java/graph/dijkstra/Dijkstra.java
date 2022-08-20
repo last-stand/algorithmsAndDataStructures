@@ -11,10 +11,9 @@ import java.util.Set;
 */
 public class Dijkstra {
     public static Graph calculateShortestPathFromSource(Graph graph, Vertex source) {
-        source.setDistance(0);
-
         Set<Vertex> settledNodes = new HashSet<>();
         Set<Vertex> unsettledNodes = new HashSet<>();
+        source.setDistance(0);
         unsettledNodes.add(source);
         while (unsettledNodes.size() != 0) {
             Vertex currrentNode = getLowestDistanceNode(unsettledNodes);
