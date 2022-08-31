@@ -1,23 +1,32 @@
 package graph.traversal;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-public class BreadthFirstSearch {
+public class DepthFirstSearch {
     public static void traverse(Vertex start) {
-        Queue<Vertex> queue = new LinkedList<>();
-        queue.add(start);
-        while (!queue.isEmpty()) {
-            Vertex current = queue.poll();
+        Stack<Vertex> stack = new Stack<>();
+        stack.push(start);
+        while (!stack.isEmpty()) {
+            Vertex current = stack.pop();
             if (!current.isVisited()) {
                 current.setVisited(true);
                 System.out.println(current.getLabel());
                 for (Vertex neighbour : current.getNeighbours()) {
                     if (!neighbour.isVisited()) {
-                        queue.add(neighbour);
+                        stack.push(neighbour);
                     }
                 }
+            }
+        }
+    }
+
+    public static void traverseRecursively(Vertex start) {
+        start.setVisited(true);
+        System.out.println(start.getLabel());
+        for (Vertex neighbour : start.getNeighbours()) {
+            if (!neighbour.isVisited()) {
+                traverseRecursively(neighbour);
             }
         }
     }
@@ -37,5 +46,15 @@ public class BreadthFirstSearch {
         v6.setNeighbours(Arrays.asList(v0));
 
         traverse(v0);
+        System.out.println();
+
+        v0.setVisited(false);
+        v1.setVisited(false);
+        v2.setVisited(false);
+        v3.setVisited(false);
+        v4.setVisited(false);
+        v5.setVisited(false);
+        v6.setVisited(false);
+        traverseRecursively(v0);
     }
 }

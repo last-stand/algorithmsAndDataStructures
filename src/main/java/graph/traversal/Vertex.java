@@ -13,6 +13,10 @@ class Vertex {
 
     private boolean visited;
 
+    public String getLabel() {
+        return label;
+    }
+
     public boolean isVisited() {
         return visited;
     }
